@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Pagination from "./components/Pagination";
 
 function App() {
   //Criação component Text
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <>
-      <main>
+      <main className="container">
         {/* HEADER   */}
         <Header />
         {/* CORE   
@@ -14,9 +15,14 @@ function App() {
             INPUT TEXT
             CARDS
         */}
-
+        <div style={{
+          flex: '1'
+        }}>
+          Core do projeto
+        </div>
         {/* FOOTER   */}
         {/* PAGINATION   */}
+        <Pagination />
       </main>
     </>
   );

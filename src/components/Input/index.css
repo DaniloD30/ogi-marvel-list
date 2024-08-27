@@ -8,6 +8,8 @@
 }
 
 .container-text-field {
+  display: flex;
+  align-items: center;
   background: white 0% 0% no-repeat padding-box;
   border: 1px solid var(--dark-snow-color);
   border-radius: 4px;
@@ -27,4 +29,8 @@
 
 .container-text-field input::placeholder {
   color: var(--smoke-color);
+}
+
+.endAdornment{
+  display: flex;
 }

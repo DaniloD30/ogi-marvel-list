@@ -45,7 +45,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           </div>
 
           {endAdornment && (
-            <div className="flex items-center">{endAdornment}</div>
+            <div className="endAdornment">{endAdornment}</div>
           )}
         </div>
       </div>

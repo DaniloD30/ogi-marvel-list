@@ -1,14 +1,21 @@
 import CardCharacter from "../../components/CardCharacter";
 import Columns from "../../components/Columns";
 import { TextField } from "../../components/Input";
+import NotFound from "../../components/NotFound";
 import Pagination from "../../components/Pagination";
 import { Spinner } from "../../components/Spinner";
 import "./index.css";
 import useCharacters from "./services/useCharacters";
 
 const Characters = () => {
-  const { characters, page, setPage, isLoading, setNameCharacter } =
-    useCharacters();
+  const {
+    characters,
+    page,
+    nameCharacter,
+    setPage,
+    isLoading,
+    setNameCharacter,
+  } = useCharacters();
 
   //TODO: Modo responsivo
   //TODO: Error Handler
@@ -38,26 +45,28 @@ const Characters = () => {
             <Columns />
             {isLoading ? (
               <Spinner />
+            ) : characters?.results.length === 0 ? (
+              <NotFound
+                titleError={`${nameCharacter} ainda não está na nossa base de dados :(`}
+              />
             ) : (
-              characters?.results && (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 6,
-                  }}
-                >
-                  {characters.results.map((character, index) => (
-                    <CardCharacter
-                      key={`${index}-${character.name}`}
-                      name={character.name}
-                      events={character.events}
-                      series={character.series}
-                      thumbnail={character.thumbnail}
-                    />
-                  ))}
-                </div>
-              )
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 6,
+                }}
+              >
+                {characters?.results.map((character, index) => (
+                  <CardCharacter
+                    key={`${index}-${character.name}`}
+                    name={character.name}
+                    events={character.events}
+                    series={character.series}
+                    thumbnail={character.thumbnail}
+                  />
+                ))}
+              </div>
             )}
           </div>
         </div>

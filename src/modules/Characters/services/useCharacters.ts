@@ -74,6 +74,7 @@ const useCharacters = () => {
     error,
     characters,
     setNameCharacter,
+    nameCharacter,
     page,
     setPage,
   };

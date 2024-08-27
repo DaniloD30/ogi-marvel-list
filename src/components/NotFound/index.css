@@ -1,0 +1,17 @@
+.container-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.container-not-found p {
+  text-align: left;
+  font: normal normal bold 32px/30px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: #555555;
+  opacity: 1;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: wrap;
+}

@@ -1,0 +1,15 @@
+.container-collumns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: 40px;
+  padding-left: 50px;
+  justify-items: stretch;
+}
+
+.container-collumns p {
+  text-align: left;
+  font: normal normal normal 12px/16px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--smoke-color);
+  opacity: 1;
+}

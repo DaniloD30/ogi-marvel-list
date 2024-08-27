@@ -2,6 +2,7 @@ import CardCharacter from "../../components/CardCharacter";
 import Columns from "../../components/Columns";
 import { TextField } from "../../components/Input";
 import Pagination from "../../components/Pagination";
+import { Spinner } from "../../components/Spinner";
 import "./index.css";
 import useCharacters from "./services/useCharacters";
 
@@ -9,11 +10,11 @@ const Characters = () => {
   const { characters, page, setPage, isLoading, setNameCharacter } =
     useCharacters();
 
-  //TODO: Loading Spinner
+  //TODO: Modo responsivo
+  //TODO: Error Handler
   //TODO: Ancora na página
   //TODO: Testes unitarios
-  //TODO: Lazy loading imagens
-  
+
   return (
     <>
       <div className="page-container">
@@ -36,7 +37,7 @@ const Characters = () => {
           <div>
             <Columns />
             {isLoading ? (
-              <div> Loading ...</div>
+              <Spinner />
             ) : (
               characters?.results && (
                 <div

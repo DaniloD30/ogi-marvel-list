@@ -7,8 +7,10 @@ const CardCharacter = ({ name, thumbnail, events, series }: Characters) => {
       <div className="container-card-character">
         <div className="item-card-character">
           <img
+            loading="lazy"
             src={`${thumbnail.path}.${thumbnail.extension}`}
             className="image-character"
+            alt="name"
           />
           <p>{name}</p>
         </div>

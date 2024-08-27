@@ -16,8 +16,11 @@ const useCharacters = () => {
 
   const [page, setPage] = useState(0);
 
+  const BASE_API_URL = import.meta.env.VITE_MARVEL_BASE_API_URL;
+
+  const KEY = import.meta.env.VITE_API_PUBLIC_KEY;
+
   useEffect(() => {
-    console.log(abortControllerRef);
     const debounceTimeout = setTimeout(() => {
       const fetchCharacters = async () => {
         abortControllerRef.current?.abort();
@@ -32,7 +35,7 @@ const useCharacters = () => {
           const params = new URLSearchParams({
             offset: `${offSet}`,
             limit: "10",
-            apikey: "b40079217171f226c7436df11c98e7e8",
+            apikey: KEY,
           });
 
           if (nameCharacter !== "") {
@@ -40,7 +43,7 @@ const useCharacters = () => {
           }
 
           const response = await fetch(
-            `https://gateway.marvel.com:443/v1/public/characters?${params}`,
+            `${BASE_API_URL}public/characters?${params}`,
             {
               signal: abortControllerRef.current?.signal,
             }
@@ -64,7 +67,7 @@ const useCharacters = () => {
     return () => {
       clearTimeout(debounceTimeout);
     };
-  }, [page, nameCharacter]);
+  }, [page, nameCharacter, BASE_API_URL, KEY]);
 
   return {
     isLoading,

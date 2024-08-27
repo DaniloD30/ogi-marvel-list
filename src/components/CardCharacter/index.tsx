@@ -1,22 +1,30 @@
+import { Characters } from "../../modules/Characters/types";
 import "./index.css";
 
-const CardCharacter = () => {
+const CardCharacter = ({ name, thumbnail, events, series }: Characters) => {
   return (
     <div>
       <div className="container-card-character">
         <div className="item-card-character">
-          <img src="photo-test.png" className="image-character" />
-          <p>Scott Lang</p>
+          <img
+            src={`${thumbnail.path}.${thumbnail.extension}`}
+            className="image-character"
+          />
+          <p>{name}</p>
         </div>
         <div className="item-card">
-          <p>Ant-Man</p>
-          <p>Giant-Man</p>
-          <p>Infinity Wars</p>
+          {series.items.length === 0
+            ? "--"
+            : series.items.map((serie, index) => (
+                <p key={`${index}-${serie.name}`}>{serie.name}</p>
+              ))}
         </div>
         <div className="item-card">
-          <p>Ant-Man</p>
-          <p>Giant-Man</p>
-          <p>Infinity Wars</p>
+          {events.items.length === 0
+            ? "--"
+            : events.items.map((event, index) => (
+                <p key={`${index}-${event.name}`}>{event.name}</p>
+              ))}
         </div>
       </div>
     </div>

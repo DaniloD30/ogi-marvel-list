@@ -21,8 +21,16 @@
 .container-card-character .item-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 5px;
+  overflow-x: hidden;
+}
+
+.container-card-character .item-card p {
+  text-align: left;
+  font: normal normal normal 14px/16px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--dark-smoke-color);
+  opacity: 1;
 }
 
 .container-card-character .item-card-character {

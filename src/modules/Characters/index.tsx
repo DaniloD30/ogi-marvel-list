@@ -1,3 +1,4 @@
+import CardCharacter from "../../components/CardCharacter";
 import Columns from "../../components/Columns";
 import { TextField } from "../../components/Input";
 import "./index.css";
@@ -14,7 +15,7 @@ const Characters = () => {
         }}
       >
         <TextField
-          endAdornment={<img src="magnifier-icon.png" />}
+          endAdornment={<img src="magnifier-icon.svg" />}
           placeholder="Search"
           label="Nome do personagem"
           // OnChange
@@ -23,7 +24,21 @@ const Characters = () => {
 
       <div>
         <Columns />
-        {/* COLUNAS, PODE UTILIZAR GRD */}</div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 6
+          }}
+        >
+          <CardCharacter />
+          <CardCharacter />
+          <CardCharacter />
+          <CardCharacter />
+        </div>
+
+        {/* COLUNAS, PODE UTILIZAR GRD */}
+      </div>
 
       <div>{/* CARD */}</div>
     </div>

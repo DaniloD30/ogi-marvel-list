@@ -21,15 +21,12 @@ const Characters = () => {
 
   const [idDetail, setDetail] = useState("");
 
-  //TODO: Modo responsivo
-  //TODO: Error Handler
-  //TODO: Ancora na página
   //TODO: Testes unitarios
 
   return (
     <>
       {idDetail !== "" ? (
-        <CharactersDetails idCharacter={idDetail} comeBack={setDetail}/>
+        <CharactersDetails idCharacter={idDetail} comeBack={setDetail} />
       ) : (
         <div className="page-container">
           <div className="container-characters">

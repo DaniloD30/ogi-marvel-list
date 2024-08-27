@@ -1,0 +1,50 @@
+.container-characters {
+  /* VOLTAR AQUI PARA PADDING RIGHT, DOWN */
+  padding: 5vh 10% 10px 10%;
+  flex-grow: 1;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+  text-align: left;
+  font: normal normal bold 32px/30px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--dark-smoke-color);
+  opacity: 1;
+}
+
+.container-comeback {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-comeback .arrow {
+  color: var(--smoke-color) 0% 0%;
+  font: normal normal normal 24px var(--pt-caption-font);
+  opacity: 1;
+  background-color: transparent;
+}
+
+.img-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-title img {
+  padding: 50px;
+}
+
+.img-title p {
+  text-align: center;
+  font: normal normal bold 32px/30px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--smoke-color);
+  opacity: 1;
+}

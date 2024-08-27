@@ -14,6 +14,7 @@ export type Characters = {
     }>;
   };
   name: string;
+  id: string;
   events: {
     items: Array<{
       name: string;

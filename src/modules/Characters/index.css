@@ -1,0 +1,12 @@
+.container-characters{
+  /* VOLTAR AQUI PARA PADDING RIGHT, DOWN */
+  padding: 5vh 10px 10px 10%;
+}
+
+.title {
+  text-align: left;
+  font: normal normal bold 32px/30px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: #555555;
+  opacity: 1;
+}

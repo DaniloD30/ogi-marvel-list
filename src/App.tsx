@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Pagination from "./components/Pagination";
+import Characters from "./modules/Characters";
 
 function App() {
   //Criação component Text
@@ -15,10 +16,12 @@ function App() {
             INPUT TEXT
             CARDS
         */}
-        <div style={{
-          flex: '1'
-        }}>
-          Core do projeto
+        <div
+          style={{
+            flex: "1",
+          }}
+        >
+          <Characters />
         </div>
         {/* FOOTER   */}
         {/* PAGINATION   */}

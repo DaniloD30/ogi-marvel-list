@@ -2,6 +2,7 @@ import "./index.css";
 
 const Pagination = () => {
   /* 
+  FILTRAR NO ENDPOINT 10 PER PAGE
   LÓGICA DA QTD DE PÁGINA
           TOTAL/10 = Num de paginas
           IF TOTAL%10 > 0, +1 Página

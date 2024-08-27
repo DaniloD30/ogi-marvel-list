@@ -1,3 +1,8 @@
+export type Data = {
+  total: number;
+  results: Characters[];
+};
+
 export type Characters = {
   thumbnail: {
     path: string;

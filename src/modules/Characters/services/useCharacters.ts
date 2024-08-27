@@ -1,60 +1,78 @@
-import { useEffect, useState } from "react";
-import { Characters } from "../types";
+import { useEffect, useRef, useState } from "react";
+import { Data } from "../types";
 
+//TODO: PAGE, NAME, DEBOUNCE
 
-
-type UseCharacters = {
-  name: string;
-  page: number;
-};
-
-const useCharacters = ({ name, page }: UseCharacters) => {
+const useCharacters = () => {
   const [error, setError] = useState();
+
   const [isLoading, setIsLoading] = useState(false);
-  const [characters, setCharacters] = useState<Characters[]>();
+
+  const [characters, setCharacters] = useState<Data>();
+
+  const [nameCharacter, setNameCharacter] = useState<string>("");
+
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    // const controller = new AbortController();
+    console.log(abortControllerRef);
+    const debounceTimeout = setTimeout(() => {
+      const fetchCharacters = async () => {
+        abortControllerRef.current?.abort();
 
-    const fetchCharacters = async () => {
-      setIsLoading(true);
-      try {
-        const offSet = page * 10;
-        const params = new URLSearchParams({
-          offset: `${offSet}`,
-          limit: "10",
-          apikey: "b40079217171f226c7436df11c98e7e8",
-        });
+        abortControllerRef.current = new AbortController();
 
-        if (name !== "") {
-            params.append("name", name);
+        setIsLoading(true);
+
+        try {
+          const offSet = page * 10;
+
+          const params = new URLSearchParams({
+            offset: `${offSet}`,
+            limit: "10",
+            apikey: "b40079217171f226c7436df11c98e7e8",
+          });
+
+          if (nameCharacter !== "") {
+            params.append("name", nameCharacter);
           }
-        // const response = await fetch(
-        //   `https://gateway.marvel.com:443/v1/public/characters?limit=10&offset=${offSet}&name=${name}&apikey=b40079217171f226c7436df11c98e7e8`
-        // );
-        // ?limit=10&offset=${offSet}&name=${name}&apikey=b40079217171f226c7436df11c98e7e8
-        const response = await fetch(
-          `https://gateway.marvel.com:443/v1/public/characters?${params}`
-        );
 
-        const charactersResponse = await response.json();
+          const response = await fetch(
+            `https://gateway.marvel.com:443/v1/public/characters?${params}`,
+            {
+              signal: abortControllerRef.current?.signal,
+            }
+          );
 
-        setCharacters(charactersResponse.data.results);
-      } catch (e) {
-        console.log("error", e);
-        // setError(e);
-      } finally {
-        setIsLoading(false);
-      }
+          const charactersResponse = await response.json();
+
+          setCharacters(charactersResponse.data);
+        } catch (e) {
+          console.log("error", e);
+
+          // setError(e);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      fetchCharacters();
+    }, 300);
+
+    return () => {
+      clearTimeout(debounceTimeout);
     };
-
-    fetchCharacters();
-  }, [page, name]);
+  }, [page, nameCharacter]);
 
   return {
     isLoading,
     error,
     characters,
+    setNameCharacter,
+    page,
+    setPage,
   };
 };
 

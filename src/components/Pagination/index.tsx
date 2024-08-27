@@ -1,34 +1,58 @@
+import { Dispatch, SetStateAction, useMemo } from "react";
 import "./index.css";
 
-const Pagination = () => {
-  /* 
-  FILTRAR NO ENDPOINT 10 PER PAGE
-  LÓGICA DA QTD DE PÁGINA
-          TOTAL/10 = Num de paginas
-          IF TOTAL%10 > 0, +1 Página
-  
-  LÓGICA DA PÁGINA ATIVA
-          DEVE VIM DO ENDPOINT?
-  
-  CALLBACK PARA PASSAR A PÁGINA E ENVIAR PARA O ENDPOINT
+type PaginationProps = {
+  page: number;
+  total: number;
+  setPage: Dispatch<SetStateAction<number>>;
+};
+const Pagination = ({ page, total, setPage }: PaginationProps) => {
+  const numPages = useMemo(() => {
+    return Math.ceil(total / 10);
+  }, [total]);
 
-  
-  */
+  const actualPage = (index: number) => page === index;
+
   return (
     <div className="pagination-container">
-      {/* SE PAGINA !== 1 */}
-      <div className="arrow">{`<<`}</div>
-      {/* SE PAGINA > 1 */}
-      <div className="arrow">{`<`}</div>
-      {[...Array(5)].map((_, index) => (
-        <div key={index + 1} className="number-page-inactive">
-          <p>{index + 1}</p>
-        </div>
-      ))}
-      {/* SE PAGINA !== TOTAL */}
-      <div className="arrow">{`>`}</div>
-      {/* SE PAGINA !== TOTAL */}
-      <div className="arrow">{`>>`}</div>
+      {page !== 0 && (
+        <button className="arrow" onClick={() => setPage(0)}>{`<<`}</button>
+      )}
+
+      {page !== 0 && (
+        <button
+          className="arrow"
+          onClick={() => setPage((prev) => prev - 1)}
+        >{`<`}</button>
+      )}
+
+      <div className="container-buttons-numbers">
+        {[...Array(numPages)].map((_, index) => (
+          <button
+            key={index}
+            className={`${
+              actualPage(index) ? "number-page-active" : "number-page-inactive"
+            }`}
+            onClick={() => setPage(index)}
+          >
+            <p>{index + 1}</p>
+          </button>
+        ))}
+      </div>
+
+      {page !== numPages && (
+        <button
+          className="arrow"
+          onClick={() => setPage((prev) => prev + 1)}
+        >{`>`}</button>
+      )}
+
+      {page !== numPages && (
+        <button
+          className="arrow"
+          onClick={() => setPage(numPages - 1)}
+        >{`>>`}</button>
+      )}
     </div>
   );
 };

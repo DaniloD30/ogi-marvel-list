@@ -1,0 +1,48 @@
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  height: 64px;
+  padding: 0 30px 0 30px;
+}
+
+.textLabel {
+  text-align: left;
+  font: normal normal bold 14px/20px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--dark-smoke-color);
+}
+
+.textUser {
+  text-align: left;
+  font: normal normal normal 14px/20px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--dark-smoke-color);
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.square-initials {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-initials .initials {
+  text-align: left;
+  font: normal normal bold 15px/10px var(--pt-caption-font);
+  letter-spacing: 0px;
+  color: var(--dark-smoke-color);
+  opacity: 1;
+}

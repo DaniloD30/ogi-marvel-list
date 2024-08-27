@@ -1,19 +1,22 @@
+import Header from "./components/Header";
+
 function App() {
-  
   //Criação component Text
   //Criação component Header
 
   return (
     <>
       <main>
-        <div className="header">
-            <img />
-            <div className="user-name">
-              <h4>Nome do candidato</h4>
-              <h4>Teste de Front-end</h4>
-              <div className="initialsUser"></div>
-            </div>
-        </div>
+        {/* HEADER   */}
+        <Header />
+        {/* CORE   
+            TOMAR CUIDADO COM A re-RENDERIZAÇÃO DESNECESSARIA DO HEADER e FOOTER
+            INPUT TEXT
+            CARDS
+        */}
+
+        {/* FOOTER   */}
+        {/* PAGINATION   */}
       </main>
     </>
   );

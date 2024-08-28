@@ -6,16 +6,24 @@
   background-color: white;
   gap: 15px;
   padding: 20px;
-  margin-top: auto; /* Move the pagination to the bottom */
+  margin-top: auto;
 }
+
+.pagination-container-width {
+  display: flex;
+  width: 60%;
+  gap: 20px;
+}
+
 
 .container-buttons-numbers {
   display: flex;
-  overflow-x: auto; /* Adiciona rolagem horizontal */
+  overflow-x: auto;
   gap: 20px;
   white-space: nowrap;
   padding: 20px;
 }
+
 .number-page-active {
   display: flex;
   align-items: center;
@@ -78,4 +86,12 @@
   font: normal normal normal 14px/19px var(--pt-caption-font);
   cursor: pointer;
   background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .pagination-container-width {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+  }
 }

@@ -1,7 +1,7 @@
 .container-characters {
-  /* VOLTAR AQUI PARA PADDING RIGHT, DOWN */
-  padding: 5vh 10% 10px 10%;
+  padding: 5vh 20% 10px 10%;
   flex-grow: 1;
+  margin-bottom: 30px;
 }
 
 .page-container {
@@ -27,4 +27,17 @@
   background: var(--dark-blue-hover-color) 0% 0% no-repeat padding-box;
   border: 1px solid var(--dark-blue-hover-color);
   opacity: 1;
+}
+
+.text-field {
+  max-width: 295;
+}
+
+@media (max-width: 768px) {
+  .text-field {
+    max-width: 295;
+    margin-bottom: 20px;
+  }
+
+
 }

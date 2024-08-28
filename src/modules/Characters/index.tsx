@@ -31,11 +31,7 @@ const Characters = () => {
         <div className="page-container">
           <div className="container-characters">
             <p className="title">Busca de personagens</p>
-            <div
-              style={{
-                maxWidth: 295,
-              }}
-            >
+            <div className="text-field">
               <TextField
                 endAdornment={<img src="magnifier-icon.svg" />}
                 placeholder="Search"
@@ -58,7 +54,7 @@ const Characters = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: 6,
+                    gap: 10,
                   }}
                 >
                   {characters?.results.map((character, index) => (

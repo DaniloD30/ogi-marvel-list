@@ -13,9 +13,9 @@ const Header = () => {
       />
       <div className="user-name">
         <p className="textLabel">Nome do candidato</p>
-        <p className="textUser">Teste de Front-end</p>
+        <p className="textUser">Danilo Dias</p>
         <div className="square-initials">
-          <span className="initials">CB</span>
+          <span className="initials">DD</span>
         </div>
       </div>
     </header>

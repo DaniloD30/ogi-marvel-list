@@ -16,7 +16,7 @@
 
 
 @media (max-width: 768px) {
-  .container-collumns {
+  .container-collumns> :nth-child(n+2) {
     display: none;
   }
 

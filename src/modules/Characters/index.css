@@ -35,10 +35,17 @@
 
 @media (max-width: 768px) {
   .text-field {
-    max-width: 295;
-    margin-bottom: 20px;
-  /* VOLTAR AQUI PARA PADDING RIGHT, DOWN */
+    max-width: 400px;
+    margin-bottom: 30px;
   }
 
 
+  .title {
+    display: flex;
+    justify-content: center;
+    font: normal normal bold 32px/30px var(--pt-caption-font);
+    letter-spacing: 0px;
+    color: var(--dark-smoke-color);
+    opacity: 1;
+  }
 }

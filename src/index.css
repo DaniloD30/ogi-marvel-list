@@ -29,6 +29,21 @@ body {
   background-color: var(--dark-snow-color);
 }
 
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--dark-snow-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue-color);
+  border-radius: 10px;
+  border: 1px solid var(--dark-snow-color);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -49,4 +64,3 @@ button,
 input {
   outline: none;
 }
-

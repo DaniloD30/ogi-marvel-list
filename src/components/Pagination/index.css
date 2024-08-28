@@ -21,7 +21,21 @@
   overflow-x: auto;
   gap: 20px;
   white-space: nowrap;
-  padding: 20px;
+  padding: 15px;
+}
+
+.container-buttons-numbers::-webkit-scrollbar {
+  height: 8px;
+}
+
+.container-buttons-numbers::-webkit-scrollbar-track {
+  background: var(--dark-snow-color);
+}
+
+.container-buttons-numbers::-webkit-scrollbar-thumb {
+  background-color: var(--dark-blue-color);
+  border-radius: 10px;
+  border: 1px solid var(--dark-snow-color);
 }
 
 .number-page-active {

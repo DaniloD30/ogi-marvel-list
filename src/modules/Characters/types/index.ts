@@ -2,6 +2,7 @@ export type Data = {
   total: number;
   results: Characters[];
 };
+export type typesUrls = "detail" | "wiki" | "comiclink";
 
 export type Characters = {
   thumbnail: {
@@ -13,6 +14,10 @@ export type Characters = {
       name: string;
     }>;
   };
+  urls: Array<{
+    type: typesUrls;
+    url: string;
+  }>;
   name: string;
   id: string;
   events: {

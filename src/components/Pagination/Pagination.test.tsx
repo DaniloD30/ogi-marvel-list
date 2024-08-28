@@ -71,8 +71,6 @@ describe("Pagination", () => {
 
     render(<Pagination {...mock} />);
 
-    screen.logTestingPlaygroundURL();
-
     fireEvent.click(
       screen.getByRole("button", {
         name: /3/i,

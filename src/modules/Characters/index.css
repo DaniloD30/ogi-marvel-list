@@ -30,13 +30,14 @@
 }
 
 .text-field {
-  max-width: 295;
+  max-width: 295px;
 }
 
 @media (max-width: 768px) {
   .text-field {
     max-width: 295;
     margin-bottom: 20px;
+  /* VOLTAR AQUI PARA PADDING RIGHT, DOWN */
   }
 
 
